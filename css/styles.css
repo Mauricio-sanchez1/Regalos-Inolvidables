@@ -1,0 +1,524 @@
+/* styles.css */
+
+/* Estilos globales y reseteos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 80px;
+    /* Deja espacio para la barra de navegación fija */
+    background-color: #f8f8f8;
+    /* Un gris muy suave para el fondo */
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Hereda el color del padre por defecto */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Estilos para el Header (Barra de Navegación) --- */
+header {
+    background-color: #ffffff;
+    /* Blanco para escritorio */
+    color: #002E6d;
+    /* Azul oscuro para texto principal del header */
+    padding: 10px 20px;
+    display: flex;
+    /* Permite distribución horizontal en escritorio */
+    justify-content: space-between;
+    /* Espacia los elementos en escritorio */
+    align-items: center;
+    /* Alinea verticalmente en escritorio */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-link img {
+    height: 60px;
+    /* Tamaño de logo en escritorio */
+    width: auto;
+}
+
+/* Ocultar elementos específicos en escritorio */
+.search-toggle,
+.menu-toggle {
+    display: none;
+    /* Crucial: no se ven en escritorio */
+}
+
+.main-nav ul {
+    display: flex;
+    /* Visible en escritorio */
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    padding-bottom: 8px;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #002E6d;
+}
+
+.main-nav ul li a.active {
+    border-bottom: 3px solid #FFD700;
+    color: #002E6d;
+}
+
+.main-nav ul li a:hover:not(.active) {
+    border-bottom: 3px solid rgba(0, 46, 109, 0.5);
+    color: rgba(0, 46, 109, 0.8);
+}
+
+.search-container {
+    display: flex;
+    /* Visible en escritorio */
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    border: 2px solid #FFD700;
+    overflow: hidden;
+    width: 300px;
+    /* Ancho de la barra de búsqueda en escritorio */
+    max-width: 100%;
+    position: relative;
+    transition: width 0.3s ease;
+}
+
+.search-input {
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    flex-grow: 1;
+    outline: none;
+    color: #333;
+}
+
+.search-button {
+    background-color: white;
+    border: none;
+    color: #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #f0f0f0;
+}
+
+.user-actions {
+    display: flex;
+    /* Visible en escritorio */
+    align-items: center;
+    gap: 5px;
+}
+
+.login-icon {
+    font-size: 1.5em;
+    padding: 1px;
+    transition: color 0.3s ease;
+    color: #002E6d;
+}
+
+.login-icon:hover {
+    color: #FFD700;
+}
+
+.login-button {
+    background-color: #FFD700;
+    color: #004D7F;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #e6c200;
+    color: white;
+}
+
+/* Estilos para iconos de banderas */
+.flag-icon {
+    height: 1.2em;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+/* --- Estilos para el contenido principal --- */
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    line-height: 1.6;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section a {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 40px 0;
+}
+
+/* --- Estilos para el Footer --- */
+footer {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-column h4 {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #004D7F;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #004D7F;
+    text-decoration: underline;
+}
+
+.contact-column .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact-column .social-icons a {
+    color: #004D7F;
+    font-size: 1.5em;
+    transition: color 0.2s ease;
+}
+
+.contact-column .social-icons a:hover {
+    color: #FFD700;
+}
+
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.footer-app-downloads,
+.footer-payment-methods {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-app-downloads h4,
+.footer-payment-methods h4 {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #004D7F;
+}
+
+.app-buttons img {
+    height: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+.payment-icons img {
+    height: 30px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #FFD700;
+    color: white;
+    padding: 20px;
+}
+
+.footer-logo-copyright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-small-logo {
+    height: 30px;
+    width: auto;
+}
+
+.footer-logo-copyright p {
+    margin: 0;
+    font-size: 0.85em;
+}
+
+.footer-legal-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85em;
+}
+
+.footer-legal-links ul li a {
+    color: black;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.footer-legal-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* --- Media Queries para Responsive Design (SOLO MÓVIL) --- */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 10px;
+        background-color: #FFD700;
+        /* Fondo amarillo para el header en móvil */
+        justify-content: space-between;
+        /* Logo e iconos a los extremos */
+        align-items: center;
+    }
+
+    .header-left {
+        width: 100%;
+        /* <-- CORRECCIÓN: Añadido el '%' */
+        display: flex;
+        justify-content: space-between;
+        /* Alinea logo y nuevos iconos a la izquierda en móvil */
+        align-items: center;
+        /* Permite que el espacio crezca */
+        gap: 0;
+        /* Asegura que no haya un gap no deseado entre el logo y el grupo de iconos */
+    }
+
+    .header-icons-right {
+        display: flex;
+        /* Convierte este contenedor en un flex container */
+        gap: 15px;
+        /* <-- NUEVO: Espacio entre la lupa y la hamburguesa */
+        align-items: center;
+        /* Alinea verticalmente los iconos dentro de este contenedor */
+    }
+
+    .logo-link img {
+        height: 50px;
+        /* Tamaño del logo en móvil */
+    }
+
+    /* Mostrar botón de hamburguesa y de búsqueda en móvil */
+    .menu-toggle,
+    .search-toggle {
+        display: block;
+        /* Crucial: se ven en móvil */
+        font-size: 1.5em;
+        color: #002E6d;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    /* Ocultar el menú de navegación y las acciones de usuario por defecto en móvil */
+    .main-nav,
+    .user-actions {
+        display: none;
+        /* Crucial: ocultos por defecto en móvil */
+        width: 100%;
+        /* Ocupan todo el ancho */
+        text-align: center;
+        background-color: #00335A;
+        /* Un azul más oscuro para el menú desplegado */
+        padding: 10px 0;
+        flex-direction: column;
+        /* Apila los elementos */
+        gap: 10px;
+    }
+
+    /* La barra de búsqueda completa se oculta en móvil y se mostrará con JS */
+    .search-container {
+        display: none;
+        /* Crucial: oculto por defecto en móvil */
+        position: absolute;
+        /* Para que flote sobre el contenido */
+        top: 70px;
+        /* Ajusta según la altura de tu header en móvil */
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        /* Deja un margen a los lados */
+        max-width: 400px;
+        background-color: white;
+        border: 1px solid #002E6d;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        /* Debe estar por encima del contenido principal, pero debajo del header */
+        padding: 5px;
+    }
+
+    /* Clases 'active' que el JavaScript añadirá para mostrar/ocultar */
+    .main-nav.active,
+    .search-container.active,
+    .user-actions.active {
+        display: flex;
+        /* Se mostrarán con flexbox cuando se les añada la clase 'active' */
+    }
+
+    /* Ajustes visuales para los elementos mostrados en móvil */
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav ul li a {
+        padding: 10px;
+        border-bottom: none;
+        color: white;
+        /* Color del texto del menú en móvil */
+    }
+
+    .main-nav ul li a.active,
+    .main-nav ul li a:hover {
+        color: #FFD700;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .login-button {
+        padding: 8px 15px;
+    }
+
+    .login-icon {
+        font-size: 1.5em;
+        color: white;
+        /* Color del icono de persona/llave en el menú desplegado */
+    }
+
+    /* Ajustes para el resto del contenido en móvil */
+    main {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    /* --- Media Queries para Responsive Design del Footer en móvil --- */
+    .footer-top,
+    .footer-middle,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-column,
+    .footer-app-downloads,
+    .footer-payment-methods,
+    .footer-logo-copyright,
+    .footer-legal-links {
+        width: 100%;
+        min-width: unset;
+        margin-bottom: 20px;
+    }
+
+    .footer-legal-links ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        padding: 15px;
+    }
+
+    .footer-logo-copyright {
+        margin-bottom: 15px;
+    }
+}
