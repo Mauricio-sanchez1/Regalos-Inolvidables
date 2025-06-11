@@ -13,7 +13,7 @@
 </div>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper-bundle.min.css" />
 
     <!-- Metadatos básicos de la página -->
     <meta charset="UTF-8"><!-- Define la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
@@ -26,6 +26,8 @@
     <!-- Enlace a la hoja de estilos externa -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Vincula una hoja de estilos CSS externa ubicada en la carpeta "css" -->
+    <!-- Agrega el script de Swiper antes de cerrar el head -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -38,18 +40,14 @@
 
             <!-- Logo de la empresa con enlace (actualmente vacío) -->
             <a href="#" class="logo-link">
-                <img src="imagenes/logo/Logo RI.png.png" alt="Logo de Regalos Inolvidables">
+                <img src="imagenes/logo/Logo RI.png" alt="Logo de Regalos Inolvidables">
                 <!-- Imagen del logo con ruta relativa y texto alternativo -->
             </a>
-
-
             <!-- Iconos de búsqueda y menú móvil -->
             <div class="header-icons-right">
-                <!-- Contenedor de los iconos ubicados a la derecha -->
-                <!-- Botón de búsqueda, representado con un emoji de lupa -->
                 <button class="menu-toggle">☰</button>
-                <!-- Botón de menú hamburguesa (para dispositivos móviles) -->
             </div>
+            <div class="user-actions"></div>
         </div>
         <form class="search-container" action="#" method="get">
             <input type="text" placeholder="Buscar productos..." name="q" />
@@ -89,15 +87,15 @@
             <div class="slide">
                 <img src="imagenes/imagenes  slider/imagen_slider_002.jpg" alt="Regalo Inolvidable 2">
                 <div class="cloud-text">
-                    <a href="#almohada" class="cloud-lg">ALMOHADA</a>
-                    <a href="#botellas" class="cloud-md">BOTELLAS</a>
-                    <a href="#camisas" class="cloud-sm">CAMISAS</a>
-                    <a href="#disenos" class="cloud-md">DISEÑOS</a>
-                    <a href="#tazas" class="cloud-lg">TAZAS</a>
-                    <a href="#dtf" class="cloud-sm">DTF</a>
-                    <a href="#llaveros" class="cloud-md">LLAVEROS</a>
-                    <a href="#gorras" class="cloud-lg">GORRAS</a>
-                    <a href="#sublimacion" class="cloud-sm">SUBLIMACION</a>
+                    <a class="cloud-md">ALMOHADAS</a>
+                    <a class="cloud-md">BOTELLAS</a>
+                    <a class="cloud-lg">CAMISAS</a>
+                    <a class="cloud-sm">DISEÑOS</a>
+                    <a class="cloud-lg">TAZAS</a>
+                    <a class="cloud-sm">DTF</a>
+                    <a class="cloud-md">LLAVEROS</a>
+                    <a class="cloud-md">GORRAS</a>
+                    <a class="cloud-lg">SUBLIMACIÓN</a>
                 </div>
             </div>
             <div class="slide">
@@ -199,7 +197,130 @@
         <section id="quienes-somos">
             <!-- Sección con id "quienes-somos" que habla sobre la empresa -->
 
-            <h2>Sobre Nosotros:</h2>
+            
+
+        <hr>
+        <!-- Línea horizontal para separar visualmente las secciones -->
+        <!-- Sección con el catálogo de productos -->
+        <section id="productos">
+            <!-- Sección con id "productos" para mostrar los productos -->
+
+            <h2>Nuestros Productos: Encuentra el Regalo Perfecto</h2>
+            <!-- Título de nivel 2 -->
+
+            <ul>
+                <!-- Lista no ordenada con categorías de productos -->
+                <li><strong>Regalos Personalizados:</strong> Artículos con mensajes/fotos.</li>
+                <!-- Producto 1: Regalos con personalización -->
+                <li><strong>Experiencias Únicas:</strong> Actividades como cenas o aventuras.</li>
+                <!-- Producto 2: Experiencias para regalar -->
+                <li><strong>Detalles Artesanales:</strong> Productos hechos a mano.</li>
+                <!-- Producto 3: Productos artesanales -->
+                <li><strong>Cestas Temáticas:</strong> Combos para diferentes ocasiones.</li>
+                <!-- Producto 4: Cestas para ocasiones especiales -->
+            </ul>
+        </section>
+        <section class="tienda-section">
+            <h2>Nuestros Productos</h2>
+            <div class="tienda-grid">
+                <!-- Tarjeta de producto -->
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel001.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel002.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel003.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel004.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel005.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel008.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel009.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel010.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-fotos">
+                        <img src="imagenes/carrucel/carrucel001.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                        <img src="imagenes/carrucel/carrucel002.jpg" alt="Producto 1 Foto 2" class="foto-secundaria">
+                        <div class="foto-indicadores">
+                            <span class="activo"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Color: Rojo</p>
+                        <p>Tipo: Decoración</p>
+                    </div>
+                </div>
+                <!-- Repite la tarjeta cambiando datos e imágenes para 12 productos -->
+                <!-- ... -->
+            </div>
+        </section>
+
+        <hr>
+        <h2>Sobre Nosotros:</h2>
             <!-- Título de nivel 2 para esta sección -->
 
             <p>En Regalos Inolvidables llevamos varios años siendo apasionados por el arte de la personalización
@@ -207,10 +328,7 @@
                 que transmitirán tus sentimientos, emoción y por supuesto de darán una experiencia única. </p>
             <!-- Párrafo con texto descriptivo sobre la empresa -->
         </section>
-
         <hr>
-        <!-- Línea horizontal para separar visualmente las secciones -->
-
         <!-- Sección de servicios (en desarrollo) -->
         <section id="servicios">
             <!-- Sección con id "servicios" que describe servicios ofrecidos -->
@@ -236,27 +354,7 @@
         <hr>
         <!-- Línea horizontal para separar visualmente las secciones -->
 
-        <!-- Sección con el catálogo de productos -->
-        <section id="productos">
-            <!-- Sección con id "productos" para mostrar los productos -->
 
-            <h2>Nuestros Productos: Encuentra el Regalo Perfecto</h2>
-            <!-- Título de nivel 2 -->
-
-            <ul>
-                <!-- Lista no ordenada con categorías de productos -->
-                <li><strong>Regalos Personalizados:</strong> Artículos con mensajes/fotos.</li>
-                <!-- Producto 1: Regalos con personalización -->
-                <li><strong>Experiencias Únicas:</strong> Actividades como cenas o aventuras.</li>
-                <!-- Producto 2: Experiencias para regalar -->
-                <li><strong>Detalles Artesanales:</strong> Productos hechos a mano.</li>
-                <!-- Producto 3: Productos artesanales -->
-                <li><strong>Cestas Temáticas:</strong> Combos para diferentes ocasiones.</li>
-                <!-- Producto 4: Cestas para ocasiones especiales -->
-            </ul>
-        </section>
-
-        <hr>
         <!-- Línea horizontal para separar visualmente las secciones -->
 
         <!-- Información de contacto de la empresa -->
@@ -438,10 +536,10 @@
         </p>
         <!-- Invitación a seguir las redes sociales con enlaces -->
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/slider.js"></script>
-    <script src="js/heder.js"></script>
+    <script src="js/header.js"></script>
     <script src="js/carrucel.js"></script>
+    <script src="js/tienda.js"></script>
 </body>
 
 </html>
