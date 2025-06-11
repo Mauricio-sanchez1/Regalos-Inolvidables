@@ -516,8 +516,8 @@ hr {
 }
 
 .product-coverflow .swiper-slide img {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 12px;
@@ -528,6 +528,136 @@ hr {
     margin: 0;
     font-size: 1.1em;
     color: #002E6d;
+}
+
+/* --- Estilos para el menú de tienda --- */
+
+.producto-fotos {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.foto-indicadores {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+    /* Asegura que quede por encima de las imágenes */
+}
+
+.foto-indicadores span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.foto-indicadores .activo {
+    background: #007bff;
+}
+
+.tienda-section {
+    padding: 32px 0;
+    background: #fafafa;
+}
+
+.tienda-section h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.tienda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto-fotos {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.producto-fotos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.producto-fotos .foto-activa {
+    opacity: 1;
+    z-index: 2;
+}
+
+.producto-fotos .foto-secundaria {
+    opacity: 0;
+    z-index: 1;
+}
+
+.producto-fotos:hover .foto-activa {
+    opacity: 0;
+}
+
+.producto-fotos:hover .foto-secundaria {
+    opacity: 1;
+}
+
+.foto-indicadores {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.foto-indicadores span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+}
+
+.foto-indicadores .activo {
+    background: #007bff;
+}
+
+.producto-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+}
+
+.producto-info p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #444;
 }
 
 /* --- Footer: Pie de página --- */
@@ -692,14 +822,14 @@ footer {
     }
 
     header {
+        width: 100vw;
         flex-direction: column;
         align-items: flex-start;
         padding: 2px;
         gap: 0;
         background-color: #dabd1a;
-        /* Mantienes este color específico para móvil */
         top: 22px;
-        /* La altura estimada de la cinta de noticias */
+
     }
 
     /* >>> REGLAS PARA LA PARTE SUPERIOR DEL HEADER EN MÓVIL (LOGO + TOGGLES) <<< */
@@ -711,6 +841,7 @@ footer {
 
     .header-icons-right {
         display: flex;
+        align-items: center;
         gap: 10px;
     }
 
@@ -725,24 +856,53 @@ footer {
 
     /* >>> REGLAS PARA LA NAVEGACIÓN PRINCIPAL EN MÓVIL <<< */
     .main-nav {
-        display: none;
+        position: fixed;
+        top: 65px;
+        /* Ajusta según la altura de tu header */
+        right: 0;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.08);
+        display: flex;
         flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
+        z-index: 2000;
+        padding: 40px 24px 24px 24px;
     }
 
     .main-nav.active {
+        transform: translateX(0);
         display: flex;
     }
 
     .main-nav ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 18px;
         width: 100%;
+        align-items: flex-start;
     }
 
     .main-nav ul li a {
-        padding: 10px 0;
+        padding: 12px 0;
+        font-size: 1.2em;
+        width: 100%;
+        display: block;
+    }
+
+    /* Opcional: oscurece el fondo cuando el menú está abierto */
+    body.menu-open::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1500;
+        pointer-events: auto;
     }
 
     /* >>> REGLAS PARA LA BARRA DE BÚSQUEDA EN MÓVIL <<< */
@@ -841,6 +1001,29 @@ footer {
 
 /* Media query para hacer que los enlaces de palabra bajen de línea en pantallas muy pequeñas */
 @media (max-width: 480px) {
+    .main-nav {
+        width: 100vw;
+        max-width: none;
+        left: 0;
+        right: 0;
+        /* Elimina padding si quieres que sea de borde a borde */
+        padding: 40px 12px 24px 12px;
+    }
+
+    .header-icons-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #002E6d;
+    }
 
     .slider-container {
         height: 150px;
@@ -881,26 +1064,44 @@ footer {
         display: none;
     }
 
+    .product-coverflow .swiper-slide {
+        padding: 20px 0;
+    }
+
     .product-coverflow {
         max-width: 100vw;
         padding-bottom: 20px;
     }
 
-    .product-coverflow .swiper-slide img {
-        width: 80px;
-        height: 80px;
+    .product-coverflow .swiper-slide {
+        padding: 20px 10px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        border: 2px solid #eee;
     }
 
-    .product-coverflow .swiper-slide {
-        padding: 4px 2px;
+    .product-coverflow .swiper-slide img {
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
         border-radius: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
     }
 
     .product-coverflow .swiper-slide h4 {
-        font-size: 0.85em;
+        font-size: 1.1em;
     }
-    
-    
+
+    .tienda-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 98%;
+        margin-left: -15px;
+        /* Ajusta este valor según lo que desees */
+        margin-right: 0;
+        justify-items: flex-start;
+    }
+
 
 
 
@@ -947,24 +1148,31 @@ footer {
     }
 
     .cloud-text {
-        top: 5%;
-        left: 0;
-        width: 60%;
-        gap: 6px 8px;
+        position: absolute;
+        top: 0%;      /* Ajusta según lo necesites */
+        left: 0%;      /* Ajusta según lo necesites */
+        width: 50%;    /* Más pequeño para agrupar */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;  /* Menor separación */
         justify-content: flex-start;
-        padding-left: 0;
+        align-items: flex-start;
+        padding-left: 10px;
+        z-index: 2;
     }
-
-    .cloud-lg {
-        font-size: 1em;
+    .cloud-text a {
+        display: inline-block;
+        font-family: 'Arial Black', Arial, sans-serif;
+        
+        font-weight: bold;
+        text-shadow: none;
+        margin-bottom: 0;
+        min-width: unset;
+        text-align: center;
+        /* Tamaños diferentes para simular la nube */
     }
-
-    .cloud-md {
-        font-size: 0.8em;
-    }
-
-    .cloud-sm {
-        font-size: 0.65em;
-    }
+    .cloud-lg { font-size: 0.7em; }
+    .cloud-md { font-size: 0.5em; }
+    .cloud-sm { font-size: 0.4em; }
 
 }
