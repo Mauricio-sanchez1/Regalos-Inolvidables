@@ -67,8 +67,8 @@ fabric.Image.fromURL('productos/imagenes_productos/camisas/camisa 1.png', functi
 
             document.getElementById('hacer-pedido').addEventListener('click', function() {
                 const mensaje = encodeURIComponent("Quiero hacer realidad mi regalo");
-                // Reemplaza 573001234567 por tu número de WhatsApp real (con código de país, sin +)
-                const numero = "573001234567";
+                // Reemplaza 50361485863 por tu número de WhatsApp real (con código de país, sin +)
+                const numero = "50361485863";
                 const url = `https://wa.me/${numero}?text=${mensaje}`;
                 window.open(url, '_blank');
             });
