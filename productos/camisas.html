@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisas Personalizadas | Regalos Inolvidables</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+</head>
+
+<body>
+    <div class="news-ticker-container">
+        <div class="news-ticker">
+            <span>🎉 ¡Grandes ofertas en la categoría de Electrónica!</span>
+            <span>🎁 ¡Envío gratis en todos los pedidos superiores a 50€!</span>
+            <span>✨ ¡Nuevos productos de decoración para el hogar disponibles!</span>
+            <span>🔔 ¡No te pierdas nuestro próximo sorteo de un regalo sorpresa!</span>
+        </div>
+    </div>
+    <header>
+        <div class="header-left">
+            <!-- Contenedor de la parte izquierda del encabezado -->
+
+            <!-- Logo de la empresa con enlace (actualmente vacío) -->
+            <a href="#" class="logo-link">
+                <img src="../imagenes/logo/Logo RI.png" alt="Logo de Regalos Inolvidables">
+                <!-- Imagen del logo con ruta relativa y texto alternativo -->
+            </a>
+            <!-- Iconos de búsqueda y menú móvil -->
+            <div class="header-icons-right">
+                <button class="menu-toggle">☰</button>
+            </div>
+            <div class="user-actions"></div>
+        </div>
+        <form class="search-container" action="#" method="get">
+            <input type="text" placeholder="Buscar productos..." name="q" />
+            <button type="submit" aria-label="Buscar">
+                <span>🔍</span>
+            </button>
+        </form>
+        <!-- Menú de navegación principal -->
+        <nav class="main-nav">
+            <!-- Sección de navegación principal -->
+            <ul>
+                <li><a href="../index.html" class="active">Inicio</a></li>
+                <!-- Enlace a la sección de inicio con clase activa -->
+                <li><a href="E:/HTML/productos.html">Productos</a></li>
+                <!-- Enlace a la sección de productos -->
+                <li><a href="#servicios">Servicios</a></li>
+                <!-- Enlace a la sección de servicios -->
+            </ul>
+        </nav>
+    </header>
+    <!-- Aquí va tu header o menú de navegación -->
+    </header>
+    <main>
+        <section class="producto-detalle">
+            <div class="producto-galeria">
+                <img id="camisaPrincipal" src="imagenes_productos/camisas/camisa 1.png" alt="Camiseta frente"
+                    class="camisa-mockup">
+                <div class="galeria-miniaturas">
+                    <img src="imagenes_productos/camisas/camisa 1.png" alt="Frente" onclick="cambiarImagen(this)">
+                    <img src="imagenes_productos/camisas/camisa 2.png" alt="Lado" onclick="cambiarImagen(this)">
+                    <img src="imagenes_productos/camisas/camisa 3.png" alt="Espalda" onclick="cambiarImagen(this)">
+                </div>
+            </div>
+            <div class="producto-info">
+                <h1>Camisa Personalizada</h1>
+                <p class="producto-descripcion">
+                    Camisas de algodón premium con estampados únicos y personalizados. Elige tu diseño favorito o
+                    solicita uno exclusivo. ¡Perfectas para regalar o lucir tu estilo!
+                </p>
+                <ul class="producto-caracteristicas">
+                    <li>Material: 100% algodón suave</li>
+                    <li>Estampado duradero y de alta calidad</li>
+                    <li>Variedad de colores y tallas</li>
+                </ul>
+                <div class="producto-tallas">
+                    <label for="talla">Talla:</label>
+                    <select id="talla" name="talla">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                </div>
+                <div class="producto-precio">
+                    <span>Desde <strong>$14.99</strong></span>
+                </div>
+                <button class="btn-primary">Comprar ahora</button>
+            </div>
+        </section>
+        <!-- Sección de personalización con Fabric.js -->
+        <div style="max-width:400px; margin:auto;">
+            <canvas id="camiseta-canvas" width="400" height="400"></canvas>
+            <input type="file" id="upload-img" accept="image/*">
+        </div>
+        <script>
+            // Cambiar imagen principal al hacer clic en miniaturas
+            function cambiarImagen(elemento) {
+                document.getElementById('camisaPrincipal').src = elemento.src;
+                document.querySelectorAll('.galeria-miniaturas img').forEach(img => img.classList.remove('selected'));
+                elemento.classList.add('selected');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelector('.galeria-miniaturas img').classList.add('selected');
+            });
+
+            // Fabric.js para personalización
+            const canvas = new fabric.Canvas('camiseta-canvas');
+            fabric.Image.fromURL('productos/camisas/camisa 1.png', function (img) {
+                img.selectable = false;
+                img.evented = false;
+                img.scaleToWidth(400);
+                canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+            });
+
+            document.getElementById('upload-img').addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function (f) {
+                    fabric.Image.fromURL(f.target.result, function (img) {
+                        img.scaleToWidth(100);
+                        img.left = 150;
+                        img.top = 120;
+                        img.hasBorders = true;
+                        img.hasControls = true;
+                        canvas.add(img);
+                        canvas.setActiveObject(img);
+                    });
+                };
+                reader.readAsDataURL(file);
+            });
+        </script>
+    </main>
+    <footer>
+        <!-- Aquí va tu footer -->
+    </footer>
+    <script src="../js/slider.js"></script>
+</body>
+
+</html>
