@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+
+<html lang="es">
+<!-- Inicia el documento HTML y especifica que el idioma principal es español -->
+<div class="news-ticker-container">
+    <div class="news-ticker">
+        <span>🎉 ¡Grandes ofertas en la categoría de Electrónica!</span>
+        <span>🎁 ¡Envío gratis en todos los pedidos superiores a 50€!</span>
+        <span>✨ ¡Nuevos productos de decoración para el hogar disponibles!</span>
+        <span>🔔 ¡No te pierdas nuestro próximo sorteo de un regalo sorpresa!</span>
+    </div>
+</div>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <!-- Metadatos básicos de la página -->
+    <meta charset="UTF-8"><!-- Define la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que el sitio sea responsive, ajustándose al ancho del dispositivo -->
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Regalos Inolvidables</title><!-- Establece el título de la página -->
+
+    <!-- Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Vincula una hoja de estilos CSS externa ubicada en la carpeta "css" -->
+    <!-- Agrega el script de Swiper antes de cerrar el head -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Inicia el cuerpo del documento HTML -->
+
+    <!-- Encabezado principal del sitio -->
+    <header>
+        <div class="header-left">
+            <!-- Contenedor de la parte izquierda del encabezado -->
+
+            <!-- Logo de la empresa con enlace (actualmente vacío) -->
+            <a href="#" class="logo-link">
+                <img src="imagenes/logo/Logo RI.png" alt="Logo de Regalos Inolvidables">
+                <!-- Imagen del logo con ruta relativa y texto alternativo -->
+            </a>
+            <!-- Iconos de búsqueda y menú móvil -->
+            <div class="header-icons-right">
+                <button class="menu-toggle">☰</button>
+            </div>
+            <div class="user-actions"></div>
+        </div>
+        <form class="search-container" action="#" method="get">
+            <input type="text" placeholder="Buscar productos..." name="q" />
+            <button type="submit" aria-label="Buscar">
+                <span>🔍</span>
+            </button>
+        </form>
+        <!-- Menú de navegación principal -->
+        <nav class="main-nav">
+            <!-- Sección de navegación principal -->
+            <ul>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <!-- Enlace a la sección de inicio con clase activa -->
+                <li><a href="#productos">Productos</a></li>
+                <!-- Enlace a la sección de productos -->
+                <li><a href="#servicios">Servicios</a></li>
+                <!-- Enlace a la sección de servicios -->
+            </ul>
+        </nav>
+    </header>
+    <!-- Inicia el slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_001.jpg" alt="Regalo Inolvidable 1">
+                <div class="slide-content">
+                    <h2>Explora Nuestros Productos</h2>
+                    <p>
+                        <a href="#camisetas" class="slide-link">Camisetas</a> |
+                        <a href="#tazas" class="slide-link">Tazas</a> |
+                        <a href="#gorras" class="slide-link">Gorras</a> |
+                        <a href="#novedades" class="slide-link">Novedades</a>
+                    </p>
+                    <a href="#productos" class="btn-primary">Ver todos los productos</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_002.jpg" alt="Regalo Inolvidable 2">
+                <div class="cloud-text">
+                    <a class="cloud-md">ALMOHADAS</a>
+                    <a class="cloud-md">BOTELLAS</a>
+                    <a class="cloud-lg">CAMISAS</a>
+                    <a class="cloud-sm">DISEÑOS</a>
+                    <a class="cloud-lg">TAZAS</a>
+                    <a class="cloud-sm">DTF</a>
+                    <a class="cloud-md">LLAVEROS</a>
+                    <a class="cloud-md">GORRAS</a>
+                    <a class="cloud-lg">SUBLIMACIÓN</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_003.jpg" alt="Regalo Inolvidable 3">
+            </div>
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_004.jpg" alt="Regalo Inolvidable 2">
+            </div>
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_005.jpg" alt="Regalo Inolvidable 2">
+            </div>
+            <div class="slide">
+                <img src="imagenes/imagenes  slider/imagen_slider_006.jpg" alt="Regalo Inolvidable 2">
+            </div>
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </div>
+    <!-- Inicia el slider -->
+    <main>
+        <!-- Contenedor principal del contenido visible de la página -->
+
+        <!-- Sección de bienvenida / presentación -->
+        <section class="hero-bienvenida-v2">
+            <div class="hero-bienvenida-content">
+                <div class="hero-texto">
+                    <h1>Bienvenido a Regalos Inolvidables</h1>
+                    <h2>¡Sorprende con creatividad y estilo!</h2>
+                    <p>
+                        Regalos únicos y personalizados para cada ocasión. Camisetas, tazas, gorras, llaveros y más, con
+                        diseños modernos y vibrantes.
+                    </p>
+                    <a href="#productos" class="btn-hero-v2">Descubre Nuestros Productos</a>
+                </div>
+                <div class="hero-imagen">
+                    <img src="imagenes/logo/Logo RI.png" alt="Regalo creativo">
+                </div>
+            </div>
+        </section>
+        <hr>
+        <!-- Línea horizontal para separar visualmente las secciones -->
+        <div class="swiper product-coverflow">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1">
+                    <h4>T-shirt </h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="productos/imagenes_productos/camisas/camisa 2.png" alt="Producto 2">
+                    <h4>Producto 2</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel003.jpg" alt="Producto 3">
+                    <h4>Producto 3</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel004.jpg" alt="Producto 1">
+                    <h4>Producto 4</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel005.jpg" alt="Producto 2">
+                    <h4>Producto 5</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel06.jpg" alt="Producto 3">
+                    <h4>Producto 6</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1">
+                    <h4>Producto 7</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel008.jpg" alt="Producto 2">
+                    <h4>Producto 8</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/carrucel009.jpg" alt="Producto 3">
+                    <h4>Producto 9</h4>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagenes/carrucel/3054898.jpg" alt="Producto 3">
+                    <h4>Producto 10</h4>
+                </div>
+                <!-- Agrega más productos aquí -->
+            </div>
+            <!-- Flechas de navegación -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <!-- Sección de información sobre la empresa -->
+
+        <!-- Sección con el catálogo de productos -->
+        <section id="productos">
+            
+            <!-- seccion mockup t-shirt -->
+            <ul>
+                <main>
+                    <div class="personalizador-box">
+                        <h2>Encuentra el Regalo Perfecto</h2>
+                        <div class="personalizador-grid">
+                            <!-- Columna 1: Canvas -->
+                            <div class="col-canvas">
+                                <canvas id="camiseta-canvas" width="400" height="400"></canvas>
+                            </div>
+                            <!-- Columna 2: Miniaturas y botones -->
+                            <div class="col-controles">
+                                <div class="miniaturas-predefinidas">
+                                    
+                                    <span class="subtitulo-controles">Elige un diseño:</span><br>
+                                    <img src="productos/imagenes_productos/estampados/estampado1.png" alt="Diseño 1"
+                                        class="miniatura-diseño">
+                                    <img src="productos/imagenes_productos/estampados/estampado2.png" alt="Diseño 2"
+                                        class="miniatura-diseño">
+                                    <img src="productos/imagenes_productos/estampados/estampado3.png" alt="Diseño 3"
+                                        class="miniatura-diseño">
+                                </div>
+                                <div class="texto-o-galeria">o selecciona una imagen de tu galería<br>
+                                    <span class="formato-recomendado">Debe ser sin fondo y en formato .png</span>
+                                </div>
+                                <label class="custom-file-upload">
+                                    <input type="file" id="upload-img" accept="image/png">
+                                    Seleccionar archivo
+                                </label>
+                                <button id="eliminar-img" type="button" class="btn-eliminar">
+                                    Selecciona la imagen para eliminarla
+                                </button>
+                                <div class="miniaturas-camisa">
+                                    <span>Elige el color de la camisa:</span><br>
+                                    <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Blanca"
+                                        class="miniatura-camisa"
+                                        data-camisa="productos/imagenes_productos/camisas/camisa 1.png">
+                                    <img src="productos/imagenes_productos/camisas/camisa_azul.png" alt="Azul"
+                                        class="miniatura-camisa"
+                                        data-camisa="productos/imagenes_productos/camisas/camisa_azul.png">
+                                    <img src="productos/imagenes_productos/camisas/camisa_roja.png" alt="Roja"
+                                        class="miniatura-camisa"
+                                        data-camisa="productos/imagenes_productos/camisas/camisa_roja.png">
+                                    <img src="productos/imagenes_productos/camisas/camisa-negra.png" alt="Negra"
+                                        class="miniatura-camisa"
+                                        data-camisa="productos/imagenes_productos/camisas/camisa-negra.png">
+                                </div>
+                            </div>
+                            <!-- Columna 3: Detalles del producto -->
+                            <div class="col-detalles">
+                                <h2>Camisa Personalizada</h2>
+                                <p>
+                                    Camisas de algodón premium con estampados únicos y personalizados.<br>
+                                    Elige tu diseño favorito o solicita uno exclusivo.<br>
+                                    ¡Perfectas para regalar o lucir tu estilo!
+                                </p>
+                                <ul>
+                                    <li>Material: 100% algodón suave</li>
+                                    <li>Estampado duradero y de alta calidad</li>
+                                    <li>Variedad de colores y tallas</li>
+                                    <li>Descarga de diseño, dale click en hacer pedido y envia la imagen.</li>
+                                </ul>
+                                <div>
+                                    <label for="talla">Talla:</label>
+                                    <select id="talla" name="talla">
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </div>
+                                <div class="producto-precio">
+                                    <span>Desde <strong>$14.99</strong></span>
+                                </div>
+                                <div class="botones-pedido">
+                                    <button id="hacer-pedido" class="btn-principal">Hacer pedido</button>
+                                    <button id="descargar-camisa" class="btn-secundario">Descargar diseño</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </ul>
+        </section>
+
+        <section class="tienda-section">
+            <h2>Nuestros Productos</h2>
+            <div class="tienda-grid">
+                <!-- Tarjeta de producto -->
+                <a href="productos/camisas.html" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1 Foto 1"
+                                class="foto-activa">
+                            <img src="productos/imagenes_productos/camisas/camisa 2.png" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <img src="productos/imagenes_productos/camisas/camisa 3.png" alt="Producto 1 Foto 3"
+                                class="foto-terciaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>T-shirt</h3>
+                            <p>Color: Blanco</p>
+                            <p>Tipo: Sin estampados</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1 Foto 1"
+                                class="foto-activa">
+                            <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>T-shirt</h3>
+                            <p>Color: Blanco</p>
+                            <p>Tipo: Sin estampados</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="imagenes/carrucel/carrucel005.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                            <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <img src="imagenes/carrucel/carrucel002.jpg" alt="Producto 1 Foto 3" class="foto-terciaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Producto 1</h3>
+                            <p>Color: Rojo</p>
+                            <p>Tipo: Decoración</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                            <img src="imagenes/carrucel/carrucel008.jpg" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Producto 1</h3>
+                            <p>Color: Rojo</p>
+                            <p>Tipo: Decoración</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="imagenes/carrucel/carrucel009.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                            <img src="imagenes/carrucel/carrucel010.jpg" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Producto 1</h3>
+                            <p>Color: Rojo</p>
+                            <p>Tipo: Decoración</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="producto-card-link">
+                    <div class="producto-card">
+                        <div class="producto-fotos">
+                            <img src="imagenes/carrucel/carrucel001.jpg" alt="Producto 1 Foto 1" class="foto-activa">
+                            <img src="imagenes/carrucel/carrucel002.jpg" alt="Producto 1 Foto 2"
+                                class="foto-secundaria">
+                            <div class="foto-indicadores">
+                                <span class="activo"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="producto-info">
+                            <h3>Producto 1</h3>
+                            <p>Color: Rojo</p>
+                            <p>Tipo: Decoración</p>
+                        </div>
+                    </div>
+                </a>
+                <!-- Repite la tarjeta cambiando datos e imágenes para más productos -->
+            </div>
+        </section>
+
+        <hr>
+        <h2>Sobre Nosotros:</h2>
+        <!-- Título de nivel 2 para esta sección -->
+
+        <p>En Regalos Inolvidables llevamos varios años siendo apasionados por el arte de la personalización
+            llevando tus ideas a la digitalización y a la creación de obsequios a través de productos únicos
+            que transmitirán tus sentimientos, emoción y por supuesto de darán una experiencia única. </p>
+        <!-- Párrafo con texto descriptivo sobre la empresa -->
+        </section>
+        <hr>
+        <!-- Sección de servicios (en desarrollo) -->
+        <section class="servicios-destacados">
+            <h3 class="servicios-titulo">Nuestros Servicios</h3>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="imagenes/Nuestros Servicios/asesoria personalizada.png" alt="Asesoría Personalizada"
+                        class="servicio-icono">
+                    <h4>Asesoría Personalizada</h4>
+                    <p>Envolturas personalizadas para tus regalos.</p>
+                </div>
+                <div class="servicio-card">
+                    <img src="imagenes/Nuestros Servicios/entrega a domicilio 2.png" alt="Entrega a Domicilio"
+                        class="servicio-icono">
+                    <h4>Entrega a Domicilio</h4>
+                    <p>Envio programado a domicilio.</p>
+                </div>
+                <div class="servicio-card">
+                    <img src="imagenes/Nuestros Servicios/empaque con creatividad.png" alt="Empaque con Creatividad"
+                        class="servicio-icono">
+                    <h4>Empaque con Creatividad</h4>
+                    <p>Asesoramiento para elegir tu regalo.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        <!-- Línea horizontal para separar visualmente las secciones -->
+
+
+        <!-- Línea horizontal para separar visualmente las secciones -->
+
+        <!-- Información de contacto de la empresa -->
+        <div class="redes-sociales-contacto-bloque">
+            <h3 class="redes-titulo">¡Síguenos en nuestras redes!</h3>
+            <p>Enterate de nuestras novedades y promociones.</p>
+            <div class="redes-sociales-contacto">
+                <a href="https://facebook.com/regalosinolvidableshechosconpasion/" target="_blank"
+                    aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/regalosinolvidables/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com/@regalosinolvidables1" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <section id="contacto" class="contacto-cards-section">
+                <h2>Contáctanos</h2>
+                <div class="contacto-cards-grid">
+
+                    <div class="contacto-card">
+                        <img src="imagenes/Contactos/email.png" alt="Email" class="contacto-icono">
+                        <h4>Email</h4>
+                        <p><a href="mailto:Regalosinolvidables1@gmail.com">Regalosinolvidables1@gmail.com</a></p>
+                        <a href="mailto:Regalosinolvidables1@gmail.com" class="contacto-btn">Enviar Email</a>
+                    </div>
+                    <div class="contacto-card">
+                        <img src="imagenes/Contactos/ubicacion.png" alt="Ubicación" class="contacto-icono">
+                        <h4>Ubicación</h4>
+                        <p></p>
+                        <p>San Salvador, El Salvador</p>
+                        <a href="imagenes/Contactos/ubicacion.png" target="_blank" class="contacto-btn">Ver en mapa</a>
+                    </div>
+                    <div class="contacto-card">
+                        <img src="imagenes/Contactos/whatsapp.png" alt="WhatsApp" class="contacto-icono">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/50361485863">+503 6148-5863</a></p>
+                        <a href="https://wa.me/50361485863" target="_blank" class="contacto-btn">Chatear</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Pie de página con enlaces adicionales y redes sociales -->
+    <footer>
+        <!-- Contenedor principal del footer -->
+
+        <div class="footer-top">
+            <!-- Parte superior del footer que contiene columnas de enlaces -->
+
+            <div class="footer-column">
+                <!-- Primera columna de enlaces -->
+
+                <h4>Para ti</h4>
+                <!-- Título de la columna -->
+
+                <ul>
+                    <!-- Lista con enlaces rápidos para el usuario -->
+                    <li><a href="">Seguimiento de envío</a></li>
+                    <li><a href="">Recibir</a></li>
+                    <li><a href="">Enviar</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <!-- Segunda columna de enlaces -->
+
+                <h4>Para tu empresa</h4>
+                <!-- Título de la columna -->
+
+                <ul>
+                    <!-- Lista con enlaces para empresas -->
+                    <li><a href="">Enviar</a></li>
+                    <li><a href="">Ecommerce</a></li>
+                    <li><a href="">Marketing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <!-- Tercera columna de enlaces -->
+
+                <h4>Para tu interés</h4>
+                <!-- Título de la columna -->
+
+                <ul>
+                    <!-- Lista con enlaces de interés general -->
+                    <li><a href="">Filatelia</a></li>
+                    <li><a href="">Correos Market</a></li>
+                    <li><a href="">Web institucional</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-column">
+                <!-- Cuarta columna para atención al cliente y redes sociales -->
+
+                <h4>Atención al cliente</h4>
+                <!-- Título de la sección -->
+
+                <div class="social-icons">
+                    <!-- Contenedor de iconos sociales -->
+                    <a href="URL_FACEBOOK" target="_blank">f</a>
+                    <!-- Enlace a Facebook, abre en pestaña nueva -->
+
+                    <a href="URL_INSTAGRAM" target="_blank">o</a>
+                    <!-- Enlace a Instagram -->
+
+                    <a href="URL_TWITTER" target="_blank">X</a>
+                    <!-- Enlace a Twitter -->
+
+                    <a href="URL_LINKEDIN" target="_blank">in</a>
+                    <!-- Enlace a LinkedIn -->
+
+                    <a href="URL_YOUTUBE" target="_blank">►</a>
+                    <!-- Enlace a YouTube -->
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+        <!-- Línea horizontal para separar visualmente las partes del footer -->
+
+        <div class="footer-middle">
+            <!-- Parte media del footer con promoción y pagos -->
+
+            <div class="footer-app-downloads">
+                <!-- Sección para descarga de la app -->
+
+                <h4>Descarga la App de Regalos Inolvidables</h4>
+                <!-- Título de la sección -->
+
+                <div class="app-buttons">
+                    <!-- Botones con enlaces a tiendas de apps -->
+
+                    <a href="" target="_blank"><img src="imagenes/appstore/app store apple.png" alt="App Store"></a>
+                    <!-- Imagen y enlace a Apple App Store -->
+
+                    <a href="" target="_blank"><img src="imagenes/appstore/appstore google.png" alt="Google Play"></a>
+                    <!-- Imagen y enlace a Google Play Store -->
+                </div>
+            </div>
+
+            <div class="footer-payment-methods">
+                <!-- Sección para métodos de pago aceptados -->
+
+                <h4>Métodos de pago</h4>
+                <!-- Título de la sección -->
+
+                <div class="payment-icons">
+                    <!-- Imágenes con logos de tarjetas y plataformas de pago -->
+
+                    <img src="imagenes/metodos de pago/logo mastercar.png" alt="Mastercard">
+                    <img src="imagenes/metodos de pago/logo paypal.png" alt="PayPal">
+                    <img src="imagenes/metodos de pago/logo maestro.png" alt="Maestro">
+                    <img src="imagenes/metodos de pago/logo visa.png" alt="Visa">
+                    <img src="imagenes/metodos de pago/logo americanexpres.png" alt="American Express">
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+        <!-- Otra línea para separar visualmente -->
+
+        <div class="footer-bottom">
+            <!-- Parte inferior del footer con copyright y enlaces legales -->
+
+            <div class="footer-logo-copyright">
+                <!-- Contenedor del logo pequeño en el footer -->
+
+                <img src="imagenes/logo/Logo RI.png" alt="Logo" class="footer-small-logo">
+                <!-- Logo de la empresa en tamaño pequeño -->
+            </div>
+
+            <div class="footer-legal-links">
+                <!-- Lista con enlaces legales -->
+
+                <ul>
+                    <li><a href="">Política de cookies</a></li>
+                    <li><a href="">Aviso legal</a></li>
+                    <li><a href="">Privacidad web</a></li>
+                    <li><a href="">Alerta seguridad</a></li>
+                    <li><a href="">Accesibilidad</a></li>
+                    <li><a href="">Configurador de cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p>&copy; 2025 Tecnova Center España. Todos los derechos reservados.</p>
+        <!-- Aviso de derechos reservados -->
+
+        <p>Síguenos en nuestras redes sociales:
+            <a href="URL_FACEBOOK" target="_blank">Facebook</a> |
+            <a href="URL_INSTAGRAM" target="_blank">Instagram</a> |
+            <a href="URL_LINKEDIN" target="_blank">LinkedIn</a>
+        </p>
+        <!-- Invitación a seguir las redes sociales con enlaces -->
+    </footer>
+    <script src="js/slider.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/carrucel.js"></script>
+    <script src="js/tienda.js"></script>
+    <script src="js/canvas t-shirt.js"></script>
+</body>
+
+</html>
