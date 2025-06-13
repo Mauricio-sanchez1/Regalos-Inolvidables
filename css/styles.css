@@ -1,0 +1,2073 @@
+/* styles.css */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Asegura que el padding y border no aumenten el tamaño total del elemento */
+}
+
+/* --- ESTILOS GENERALES Y DE ESCRITORIO --- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 102px;
+    /* Espacio para cinta de noticias y header fijos */
+    background-color: #f8f8f8;
+    color: #333;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ESTILOS PARA LA CINTA DE NOTICIAS DESLIZANTE --- */
+.news-ticker-container {
+    background-color: #002E6d;
+    color: rgb(239, 184, 16);
+    /* Color dorado/naranja para el texto */
+    padding: 3px 0;
+    /* Más angosta: 3px arriba y 3px abajo */
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed;
+    /* Lo fija en la pantalla */
+    top: 0;
+    /* Lo posiciona en la parte superior del viewport */
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    /* Más alto que el header */
+}
+
+.news-ticker {
+    display: inline-block;
+    animation: ticker-move 100s linear infinite;
+    /* Animación más lenta (100s) */
+    padding-left: 100%;
+    /* Inicia el texto fuera de pantalla */
+}
+
+.news-ticker span {
+    display: inline-block;
+    padding-right: 50px;
+    font-size: 0.9em;
+    /* Mantener font-size para que entre bien */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.news-ticker-container:hover .news-ticker {
+    animation-play-state: paused;
+}
+
+@keyframes ticker-move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+/* --- Header: Barra de navegación fija en la parte superior --- */
+header {
+    background-color: #ffffff;
+    color: #002E6d;
+    padding: 3px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    /* Fija el header */
+    /* AJUSTE CLAVE: Posiciona el header justo debajo de la cinta de noticias */
+    /* La cinta de noticias es ~22px de alto (3px padding + 0.9em text + 3px padding) */
+    top: 22px;
+    /* Se posiciona debajo de la cinta de noticias */
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /* Asegura que se muestre por encima del contenido, pero debajo de la cinta */
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-link img {
+    height: 60px;
+    width: auto;
+}
+
+.search-toggle,
+.menu-toggle {
+    display: none;
+    /* Oculta estos botones en pantallas grandes por defecto */
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    padding-bottom: 8px;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #002E6d;
+}
+
+.main-nav ul li a.active {
+    border-bottom: 3px solid #FFD700;
+    color: #002E6d;
+}
+
+.main-nav ul li a:hover:not(.active) {
+    border-bottom: 3px solid rgba(0, 46, 109, 0.5);
+    color: rgba(0, 46, 109, 0.8);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 3px 10px 3px 16px;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 320px;
+    width: 100%;
+}
+
+.search-container input[type="text"] {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1em;
+    padding: 8px 0;
+    flex: 1;
+    color: #333;
+}
+
+.search-container button {
+    background: #ffd700;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1.2em;
+    color: #002E6d;
+}
+
+.search-container button:hover {
+    background: #002E6d;
+    color: #ffd700;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-icon {
+    font-size: 1.5em;
+    padding: 1px;
+    transition: color 0.3s ease;
+    color: #002E6d;
+}
+
+.login-icon:hover {
+    color: #FFD700;
+}
+
+.login-button {
+    background-color: #FFD700;
+    color: #004D7F;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #e6c200;
+    color: white;
+}
+
+.flag-icon {
+    height: 1.2em;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+/* --- Hero: Sección de bienvenida --- */
+
+
+.hero-bienvenida-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1900px;
+    /* Más ancho, ajústalo a tu gusto */
+    width: 98vw;
+    /* Ocupa casi todo el ancho de la ventana */
+    margin: 0px 0px 0px -30px;
+    /* Centrado y con espacio arriba/abajo */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(174, 169, 238, 0.12) 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px #0001;
+    padding: 48px 48px 48px 48px;
+    /* Más padding para aire */
+}
+
+.hero-imagen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-imagen img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-texto {
+    flex: 2;
+    text-align: center;
+}
+
+
+
+.hero-bienvenida-content h1 {
+    font-size: 2.1em;
+    color: #002E6d;
+    margin-bottom: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.hero-bienvenida-content h2 {
+    font-size: 1.3em;
+    color: #4b2eb6;
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.hero-bienvenida-content p {
+    color: #333;
+    font-size: 1.08em;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.btn-hero-v2 {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1.08em;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px #007bff22;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.btn-hero-v2:hover {
+    background: #ffd700;
+    color: #002E6d;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* --- seccion camisas --- */
+.producto-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 950px;
+    margin: 40px auto 32px auto;
+    align-items: flex-start;
+    padding: 0 16px;
+}
+
+.producto-galeria {
+    text-align: center;
+}
+
+.camisa-mockup {
+    width: 320px;
+    max-width: 100%;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #0001;
+    background: #fff;
+}
+
+.galeria-miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.galeria-miniaturas img {
+    width: 64px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: border 0.2s, transform 0.2s;
+}
+
+.galeria-miniaturas img:hover,
+.galeria-miniaturas img.selected {
+    border: 2px solid #002E6d;
+    transform: scale(1.08);
+}
+
+.producto-info {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 18px 0;
+    text-align: left;
+}
+
+.producto-info h1 {
+    color: #002E6d;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.producto-descripcion {
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.producto-caracteristicas {
+    margin-bottom: 14px;
+    color: #333;
+    padding-left: 18px;
+}
+
+.producto-tallas {
+    margin-bottom: 12px;
+}
+
+.producto-precio {
+    font-size: 1.2em;
+    color: #007bff;
+    margin-bottom: 14px;
+}
+
+.btn-primary {
+    background: #ffd700;
+    color: #002E6d;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+    background: #002E6d;
+    color: #ffd700;
+}
+
+/* --- Estilos para el Slider de Imágenes --- */
+.slider-container {
+    width: 100%;
+    max-width: max-content;
+    height: 450px;
+    /* Altura original para escritorio */
+    margin: 0px auto;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.075);
+    border-radius: 10px;
+    max-width: 80%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Posiciona el texto del primer slide a la izquierda */
+.slider .slide:first-child .slide-content {
+    left: 70px;
+    /* Separa el texto del borde izquierdo */
+    position: absolute;
+    /* Asegura que el texto se posicione correctamente */
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    align-items: flex-start;
+    max-width: 45%;
+    /* Limita el ancho del texto a menos de la mitad */
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 220px;
+    /* Separa el texto del borde derecho y del botón next */
+}
+
+.slide-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.slide-content p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.slide-link {
+    color: #ffd700;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.slide-link:hover {
+    color: #ffec8b;
+    text-decoration: none;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 100;
+    /* Asegura que estén por encima de todo el contenido del slide */
+
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.slider-container .prev {
+    left: 10px;
+    /* Posiciona el botón izquierdo */
+}
+
+.slider-container .next {
+    right: 10px;
+    /* Posiciona el botón derecho */
+}
+
+.slider-container .prev:hover,
+.slider-container .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Oscurece al pasar el ratón */
+}
+
+/* --- segundo slider nuve de texto --- */
+/* Nube de texto para el segundo slide */
+.cloud-text {
+    position: absolute;
+    top: 18%;
+    left: 5%;
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    /* espacio entre palabras */
+    z-index: 2;
+    pointer-events: auto;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 3%;
+}
+
+.cloud-text a {
+    display: inline-block;
+    color: #000000;
+    font-weight: bold;
+    opacity: 0.92;
+    text-shadow: 1px 1px 6px #000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    pointer-events: auto;
+    /* permite hacer clic */
+    padding: 2px 8px;
+}
+
+.cloud-lg {
+    font-size: 2em;
+}
+
+.cloud-md {
+    font-size: 1.3em;
+}
+
+.cloud-sm {
+    font-size: 1em;
+}
+
+.cloud-text a:hover,
+.cloud-text a:focus {
+    color: #ffd700;
+
+}
+
+.cloud-text a:active {
+    color: #fff;
+    background: #ffd700;
+}
+
+/* Efecto desordenado para cada palabra */
+.cloud-text a:nth-child(1) {
+    transform: translateY(0px);
+}
+
+.cloud-text a:nth-child(2) {
+    transform: translateY(18px);
+}
+
+.cloud-text a:nth-child(3) {
+    transform: translateY(5px);
+}
+
+.cloud-text a:nth-child(4) {
+    transform: translateY(25px);
+}
+
+.cloud-text a:nth-child(5) {
+    transform: translateY(0px);
+}
+
+.cloud-text a:nth-child(6) {
+    transform: translateY(30px);
+}
+
+.cloud-text a:nth-child(7) {
+    transform: translateY(20px);
+}
+
+.cloud-text a:nth-child(8) {
+    transform: translateY(10px);
+}
+
+.cloud-text a:nth-child(9) {
+    transform: translateY(10px);
+}
+
+/* --- Estilos para el menú de navegación principal --- */
+
+/* --- Estilos body --- */
+main {
+    padding: 10px 30px;
+    max-width: 98vw;
+    margin: 5px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section a {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 40px 0;
+}
+
+.product-coverflow {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding-bottom: 40px;
+}
+
+.product-coverflow .swiper-slide {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+    padding: 20px 10px;
+    border: 2px solid #eee;
+}
+
+.product-coverflow .swiper-slide img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+.product-coverflow .swiper-slide h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #002E6d;
+}
+
+/* Estilos para canvas t-shirt */
+.personalizador-grid {
+    display: grid;
+    grid-template-columns: 420px 1fr 340px;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 40px auto 40px auto;
+    align-items: flex-start;
+}
+
+.col-canvas {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-controles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px !important;
+    background: #fafbfc;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 10px 6px !important;
+}
+
+.col-detalles {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 24px 18px;
+}
+
+.miniaturas-predefinidas,
+.miniaturas-camisa {
+    margin: 2px 0 !important;
+    text-align: center;
+}
+
+.miniaturas-predefinidas img,
+.miniaturas-camisa img {
+    width: 54px;
+    margin: 6px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border 0.2s;
+    background: #fff;
+}
+
+.miniaturas-predefinidas img:hover,
+.miniaturas-camisa img:hover,
+.miniaturas-camisa img.selected {
+    border: 2px solid #007bff;
+}
+
+.btn-principal,
+.btn-secundario {
+    width: 90%;
+    max-width: 180px !important;
+    padding: 7px 0 !important;
+    margin: 4px 0 5px 0 !important;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em !important;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-principal {
+    background: #007bff;
+    color: #ffffff;
+}
+
+.btn-principal:hover {
+    background: #f7e011;
+}
+
+.btn-secundario {
+    background: #f1f1f1;
+
+    color: #222;
+    border: 1px solid #ccc;
+    font-size: 0.95em !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-secundario:hover {
+    background: #e2e2e2;
+}
+
+.col-detalles h2 {
+    margin-top: 0;
+    color: #0a2a5c;
+}
+
+.col-detalles ul {
+    padding-left: 18px;
+    margin: 12px 0;
+}
+
+.producto-precio {
+    margin-top: 18px;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.personalizador-box {
+    background: #fff;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #0002;
+    padding: 32px 24px;
+    max-width: 1800px;
+    margin: 0px -50px 0px -50px;
+}
+
+.subtitulo-controles {
+    display: block;
+    font-weight: bold;
+    font-size: 1.08em;
+    margin-bottom: 2px;
+    color: #0a2a5c;
+}
+
+.texto-o-galeria {
+    margin: 2px 0 0 0 !important;
+    font-size: 1em;
+    color: #444;
+    text-align: center;
+}
+
+.formato-recomendado {
+    display: block;
+    font-size: 0.95em;
+    color: #007bff;
+    margin-top: 2px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 7px 16px !important;
+    margin: 4px 0 3px 0 !important;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 0.97em !important;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.custom-file-upload:hover {
+    background: #f7e011;
+    color: #000000;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.btn-eliminar {
+    width: 90%;
+    max-width: 220px;
+    padding: 10px 0;
+    margin: 4px 0 5px 0 !important;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    background: #ffeaea;
+    color: #d32f2f;
+    border: 1.5px solid #d32f2f;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-eliminar:hover {
+    background: #d32f2f;
+    color: #fff;
+}
+
+/* Reduce el margen de los bloques internos en la columna central */
+.col-controles>* {
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
+.botones-pedido {
+    display: flex;
+    gap: 14px;
+    margin-top: 18px;
+    margin-bottom: 0;
+    justify-content: flex-start;
+}
+
+.botones-pedido .btn-principal,
+.botones-pedido .btn-secundario {
+    width: auto;
+    min-width: 140px;
+    max-width: 200px;
+    margin: 0 !important;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+/* --- Estilos para el menú de tienda --- */
+
+.producto-fotos {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.foto-indicadores {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+    /* Asegura que quede por encima de las imágenes */
+}
+
+.foto-indicadores span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.foto-indicadores .activo {
+    background: #007bff;
+}
+
+.tienda-section {
+    padding: 32px 0;
+    background: #fafafa;
+}
+
+.tienda-section h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.tienda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 2000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.producto-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto-fotos {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.producto-fotos img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.producto-fotos .foto-activa {
+    opacity: 1;
+    z-index: 2;
+}
+
+.producto-fotos .foto-secundaria {
+    opacity: 0;
+    z-index: 1;
+}
+
+
+
+
+
+.foto-indicadores {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.foto-indicadores span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #007bff;
+    /* Contorno azul */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    margin: 0 2px;
+}
+
+.foto-indicadores span:hover,
+.foto-indicadores span:focus {
+    background: #007bff;
+    /* Azul de fondo */
+    border-color: #0056b3;
+    /* Azul más oscuro en el borde */
+}
+
+.foto-indicadores .activo {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+.producto-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+}
+
+.producto-info p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.producto-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* --- sección de servicios destacados --- */
+
+.servicios-destacados {
+    padding: 32px 0 24px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.servicios-titulo {
+    color: #222;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    margin-top: -50px;
+    letter-spacing: 0.5px;
+}
+
+.servicios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.servicio-card {
+    background: #ffffff86;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #0001;
+    padding: 28px 18px 20px 18px;
+    width: 360px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 24px #0002;
+}
+
+.servicio-icono {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 18px;
+    object-fit: contain;
+}
+
+.servicio-card h4 {
+    margin: 0 0 10px 0;
+    color: #4b2eb6;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.servicio-card p {
+    color: #444;
+    font-size: 0.98em;
+    margin: 0;
+}
+
+/* --- sección de contacto --- */
+
+.contacto-cards-section {
+    text-align: center;
+    padding: 32px 0 24px 0;
+}
+
+.contacto-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.contacto-card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 28px 18px 20px 18px;
+    width: 360px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.contacto-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 24px #0002;
+}
+
+.contacto-icono {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.contacto-card h4 {
+    margin: 0 0 6px 0;
+    color: #4b2eb6;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.contacto-card p {
+    color: #444;
+    font-size: 0.98em;
+    margin: 0 0 10px 0;
+}
+
+.contacto-btn {
+    display: inline-block;
+    background: #002E6d;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.98em;
+    margin-top: 6px;
+    transition: background 0.2s;
+}
+
+.contacto-btn:hover {
+    background: #ffd700;
+    color: #002E6d;
+}
+
+.contacto-horario {
+    margin-top: 18px;
+    color: #666;
+    font-size: 0.98em;
+}
+
+/* --- Redes sociales --- */
+.redes-sociales-contacto-bloque {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.redes-titulo {
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.redes-sociales-contacto {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.redes-sociales-contacto a {
+    color: #222;
+    font-size: 3em;
+    transition: color 0.2s;
+}
+
+.redes-sociales-contacto a:hover {
+    color: #ddcf11;
+}
+
+/* --- Footer: Pie de página --- */
+footer {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    /* Cambiado de .footer-section a .footer-column para que coincida con tu HTML */
+    flex: 1 1 200px;
+    margin-right: 20px;
+}
+
+.footer-column h4 {
+    margin-bottom: 10px;
+    color: #002E6d;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Nuevos estilos para los iconos sociales en el footer */
+.footer-column .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-column .social-icons a {
+    font-size: 1.5em;
+    /* Tamaño del icono */
+    color: #002E6d;
+    /* Color de los iconos */
+    transition: color 0.3s ease;
+}
+
+.footer-column .social-icons a:hover {
+    color: #FFD700;
+    /* Color al pasar el ratón */
+}
+
+/* Estilos para la sección de descarga de apps */
+.footer-app-downloads h4,
+.footer-payment-methods h4 {
+    margin-bottom: 15px;
+    color: #002E6d;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Para que los botones bajen de línea en pantallas pequeñas */
+}
+
+.app-buttons img {
+    height: 40px;
+    /* Altura de los logos de app store */
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-payment-methods .payment-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-payment-methods .payment-icons img {
+    height: 30px;
+    /* Altura de los logos de pago */
+    width: auto;
+    object-fit: contain;
+    /* Asegura que la imagen se ajuste sin recortarse */
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-app-downloads,
+.footer-payment-methods {
+    flex: 1 1 45%;
+    /* Distribuye el espacio entre ambas secciones */
+    min-width: 280px;
+    /* Asegura que no se hagan demasiado pequeños */
+    margin-bottom: 20px;
+}
+
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    /* Para organizar el logo y los enlaces legales */
+    flex-direction: column;
+    /* Apila los elementos */
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo-copyright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-small-logo {
+    height: 40px;
+    /* Tamaño del logo pequeño en el footer */
+    width: auto;
+}
+
+.footer-legal-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los enlaces bajen de línea */
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-legal-links ul li a {
+    color: #555;
+}
+
+.footer-legal-links ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Responsive Design: ESTILOS PARA PANTALLAS PEQUEÑAS (MÓVILES) --- */
+@media (max-width: 768px) {
+
+    /* >>> AJUSTES GENERALES DEL BODY Y HEADER EN MÓVIL <<< */
+    body {
+        padding-top: 90px;
+        /* Ajusta este valor si la altura de tu header móvil es diferente */
+    }
+
+    header {
+        width: 100vw;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px;
+        gap: 0;
+        background-color: #ffffff;
+        top: 22px;
+
+    }
+
+    /* >>> REGLAS PARA LA PARTE SUPERIOR DEL HEADER EN MÓVIL (LOGO + TOGGLES) <<< */
+    .header-left {
+        width: 98%;
+        justify-content: space-between;
+        margin-bottom: -10px;
+    }
+
+    .header-icons-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #002E6d;
+    }
+
+    /* >>> REGLAS PARA LA NAVEGACIÓN PRINCIPAL EN MÓVIL <<< */
+    .main-nav {
+        position: fixed;
+        top: 65px;
+        /* Ajusta según la altura de tu header */
+        right: 0;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
+        z-index: 2000;
+        padding: 40px 24px 24px 24px;
+    }
+
+    .main-nav.active {
+        transform: translateX(0);
+        display: flex;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .main-nav ul li a {
+        padding: 12px 0;
+        font-size: 1.2em;
+        width: 100%;
+        display: block;
+    }
+
+    /* Opcional: oscurece el fondo cuando el menú está abierto */
+    .body.menu-open::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1500;
+        pointer-events: auto;
+    }
+
+    /* >>> REGLAS PARA LA BARRA DE BÚSQUEDA EN MÓVIL <<< */
+    .search-container {
+        display: none;
+        /* Asumiendo que quieres ocultarla en móvil */
+    }
+
+    /* >>> REGLAS PARA LAS ACCIONES DE USUARIO EN MÓVIL <<< */
+    .user-actions {
+        display: none;
+        /* Oculta todo el contenedor de acciones de usuario en móvil */
+    }
+
+
+    /* >>> ESTILOS PARA EL SLIDER EN PANTALLAS PEQUEÑAS (AJUSTES) <<< */
+    .slider-container {
+        height: 300px;
+        /* Más alto para que se vea más de la imagen en móvil */
+        margin: 12px auto;
+    }
+
+    /* AJUSTES DE FUENTE Y PADDING PARA EL CONTENIDO SUPERPUESTO EN MÓVIL */
+    .slide-content h2 {
+        font-size: 1.2em;
+        /* Más pequeño para móvil */
+        margin-bottom: 50px;
+    }
+
+    .slide-content p {
+        font-size: 0.85em;
+        /* Más pequeño para móvil */
+        line-height: 1.5em;
+        margin-bottom: 50px;
+    }
+
+    .slide-content {
+        padding: 10px;
+        /* Un poco menos de padding en móvil */
+        max-width: 95%;
+        /* Más ancho para aprovechar espacio */
+        background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        /* Ajuste de padding en móvil */
+        font-size: 0.9em;
+        /* Ajuste de tamaño de fuente en móvil */
+    }
+
+    .product-coverflow .swiper-slide {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: box-shadow 0.3s, transform 0.3s;
+        padding: 20px 10px;
+        border: 2px solid #eee;
+    }
+
+    .product-coverflow .swiper-slide img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    }
+
+
+    .cloud-text {
+        top: 10%;
+        left: 2%;
+        width: 50%;
+        gap: 10px 14px;
+        padding-left: 0;
+    }
+
+    .cloud-lg {
+        font-size: 1.2em;
+    }
+
+    .cloud-md {
+        font-size: 1em;
+    }
+
+    .cloud-sm {
+        font-size: 0.85em;
+    }
+
+    /* --- Estilos para productos camisas movil--- */
+    .producto-galeria {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .camisa-mockup {
+        width: 260px;
+        max-width: 90vw;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px #0001;
+    }
+
+    .galeria-miniaturas {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .galeria-miniaturas img {
+        width: 60px;
+        height: auto;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        transition: border 0.2s, transform 0.2s;
+    }
+
+    .galeria-miniaturas img:hover,
+    .galeria-miniaturas img.selected {
+        border: 2px solid #002E6d;
+        transform: scale(1.08);
+    }
+
+    /* Info del producto */
+    .producto-info {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 18px 0;
+        text-align: left;
+    }
+
+    .producto-info h1 {
+        color: #002E6d;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .producto-descripcion {
+        color: #444;
+        margin-bottom: 12px;
+    }
+
+    .producto-caracteristicas {
+        margin-bottom: 14px;
+        color: #333;
+        padding-left: 18px;
+    }
+
+    .producto-tallas {
+        margin-bottom: 12px;
+    }
+
+    .producto-precio {
+        font-size: 1.2em;
+        color: #007bff;
+        margin-bottom: 14px;
+    }
+
+    .btn-primary {
+        background: #ffd700;
+        color: #002E6d;
+        padding: 10px 28px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #002E6d;
+        color: #ffd700;
+    }
+
+    /* Ajustes para la sección de canvas */
+    #camiseta-canvas {
+        width: 320px;
+        height: 320px;
+
+    }
+
+    /* Contenedor del canvas */
+    .col-canvas {
+        width: 100%;
+        padding: 32px 0 0 0;
+        /* Puedes ajustar este valor según el espacio que necesites */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    /* Cambia el grid a columnas apiladas */
+    .personalizador-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Controles y detalles más estrechos */
+    .col-controles,
+    .col-detalles {
+        width: 90%;
+    }
+
+    /* Botones y controles */
+    .custom-file-upload,
+    .btn-principal,
+    .btn-secundario,
+    .btn-eliminar {
+        font-size: 0.95em;
+        padding: 10px ;
+        align-items: center;
+    }
+
+    /* Miniaturas más pequeñas */
+    .miniaturas-predefinidas img,
+    .miniaturas-camisa img {
+        width: 52px;
+        margin: 4px;
+    }
+
+    /* Contenedor principal más compacto */
+    .personalizador-box {
+        padding: 24px 12px;
+        margin: 0px -60px;
+    }
+
+    /* Título centrado y más pequeño */
+    .personalizador-box h2 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+
+}
+
+/* Media query para hacer que los enlaces de palabra bajen de línea en pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .main-nav {
+        width: 100vw;
+        max-width: none;
+        left: 0;
+        right: 0;
+        /* Elimina padding si quieres que sea de borde a borde */
+        padding: 40px 12px 24px 12px;
+    }
+
+    .header-icons-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #002E6d;
+    }
+
+    /* imagen bienvenidos logo */
+    .beneficios-grid {
+        flex-direction: column;
+        gap: 18px;
+        ;
+    }
+
+    .hero-bienvenida-content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-texto {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    hero-imagen {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 18px;
+        margin-bottom: 0;
+    }
+
+    .hero-imagen img {
+        max-width: 120px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* slider */
+
+    .slider-container {
+        height: 150px;
+        /* Más alto para que se vea más de la imagen en móvil */
+        width: 100%;
+        /* Asegura que el slider ocupe todo el ancho disponible */
+        margin: 12px auto;
+    }
+
+    .slide-content {
+        background-color: rgba(0, 0, 0, 0.10);
+        font-size: 1em;
+        width: 100vw;
+        margin-left: -50PX;
+
+
+
+
+        /* Limita el ancho del texto a menos de la mitad */
+
+
+
+        align-items: center;
+        /* Reduce el padding para móvil */
+    }
+
+    .slide-content h2 {
+        font-size: 0.8em;
+        margin-bottom: 5px;
+    }
+
+    .slide-content p {
+        font-size: 0.5em;
+        margin-bottom: 5px;
+        margin-left: -50px;
+        margin-right: -50px;
+        line-height: 1.2;
+        text-align: center;
+        padding: 6px 12px;
+
+
+    }
+
+    .btn-primary {
+        padding: 8px;
+        font-size: 0.5em;
+    }
+
+    /* Oculta los botones de navegación del slider en móvil, si se prefiere la navegación táctil */
+    .slider-container .prev,
+    .slider-container .next {
+        display: none;
+    }
+
+    .product-coverflow .swiper-slide {
+        padding: 20px 0;
+    }
+
+    .product-coverflow {
+        max-width: 100vw;
+        padding-bottom: 20px;
+    }
+
+    .product-coverflow .swiper-slide {
+        padding: 20px 10px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        border: 2px solid #eee;
+    }
+
+    .product-coverflow .swiper-slide img {
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    }
+
+    .product-coverflow .swiper-slide h4 {
+        font-size: 1.1em;
+    }
+
+    .tienda-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 98%;
+        margin-left: 0px;
+        /* Ajusta este valor según lo que desees */
+        margin-right: 0;
+        justify-items: flex-start;
+    }
+
+    /* Ajustes para la sección de canvas */
+    #camiseta-canvas {
+        width: 320px !important;
+        height: 320px !important;
+        padding: auto;
+        align-items: center;
+    }
+
+    .col-canvas {
+        width: 100%;
+        padding: 50px 0PX 0px 25px;
+        display: flex;
+        justify-content: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .personalizador-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .col-controles,
+    .col-detalles {
+        width: 90%;
+
+    }
+
+    .custom-file-upload,
+    .btn-principal,
+    .btn-secundario,
+    .btn-eliminar {
+        font-size: 0.95em;
+        padding: 10px !important;
+    }
+
+    .miniaturas-predefinidas img,
+    .miniaturas-camisa img {
+        width: 48px;
+        margin: 4px;
+    }
+
+    .personalizador-box {
+        padding: 20px 10px;
+        margin: 0px -80px 0px -80px;
+    }
+
+    .personalizador-box h2 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+
+
+
+
+
+    /* >>> RESTO DE TUS ESTILOS RESPONSIVOS <<< */
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        /* Ya cambiado a .footer-column */
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .footer-middle {
+        flex-direction: column;
+        /* Apila las secciones de app y pago */
+        align-items: center;
+        /* Centra los elementos apilados */
+    }
+
+    .footer-app-downloads,
+    .footer-payment-methods {
+        flex: 1 1 100%;
+        /* Cada uno ocupa el 100% del ancho */
+        margin-right: 0;
+        margin-bottom: 30px;
+        /* Más espacio entre ellos */
+        text-align: center;
+        /* Centra el texto y los botones */
+    }
+
+    .app-buttons,
+    .payment-icons {
+        justify-content: center;
+        /* Centra los botones/iconos */
+    }
+
+    .footer-legal-links ul {
+        flex-direction: column;
+        /* Apila los enlaces legales */
+        gap: 10px;
+        /* Más espacio entre ellos */
+    }
+
+    /* nube slider 2 */
+    .cloud-text {
+        top: 8%;
+        left: 0;
+        width: 96vw;
+        gap: 10px 10px;
+        padding-left: 0;
+        justify-content: flex-start;
+        font-size: 1em;
+        /* Opcional: ajusta el tamaño de fuente */
+    }
+
+    .cloud-text a {
+        display: inline-block;
+        color: #000000;
+        font-weight: bold;
+        opacity: 0.92;
+        text-shadow: 1px 1px 6px #000;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: color 0.2s, background 0.2s;
+        pointer-events: auto;
+        /* permite hacer clic */
+        padding: 2px 8px;
+    }
+
+    .cloud-lg {
+        font-size: 1em;
+    }
+
+    .cloud-md {
+        font-size: 0.6em;
+    }
+
+    .cloud-sm {
+        font-size: 0.4em;
+    }
+
+    .cloud-text a:hover,
+    .cloud-text a:focus {
+        color: #ffd700;
+
+    }
+
+    .cloud-text a:active {
+        color: #fff;
+        background: #ffd700;
+    }
+
+    /* Efecto desordenado para cada palabra */
+    .cloud-text a:nth-child(1) {
+        transform: translateY(0px);
+    }
+
+    .cloud-text a:nth-child(2) {
+        transform: translateY(9px);
+    }
+
+    .cloud-text a:nth-child(3) {
+        transform: translateY(2px);
+    }
+
+    .cloud-text a:nth-child(4) {
+        transform: translateY(14px);
+    }
+
+    .cloud-text a:nth-child(5) {
+        transform: translateY(0px);
+    }
+
+    .cloud-text a:nth-child(6) {
+        transform: translateY(15px);
+    }
+
+    .cloud-text a:nth-child(7) {
+        transform: translateY(10px);
+    }
+
+    .cloud-text a:nth-child(8) {
+        transform: translateY(5px);
+    }
+
+    .cloud-text a:nth-child(9) {
+        transform: translateY(5px);
+    }
+
+    /* --- Estilos para productos camisas --- */
+
+    .producto-info {
+        padding: 8px 4vw;
+        font-size: 0.98em;
+    }
+
+    .camisa-mockup {
+        width: 90vw;
+    }
+
+    .galeria-miniaturas img {
+        width: 44px;
+    }
+}
