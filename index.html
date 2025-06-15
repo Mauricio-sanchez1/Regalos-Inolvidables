@@ -2,7 +2,7 @@
 <!-- Define el tipo de documento como HTML5 -->
 
 <html lang="es">
-<!-- Inicia el documento HTML y especifica que el idioma principal es español -->
+<!-- Inicia el documento HTML e especifica que el idioma principal es español -->
 <div class="news-ticker-container">
     <div class="news-ticker">
         <span>🎉 ¡Grandes ofertas en la categoría de Electrónica!</span>
@@ -38,16 +38,17 @@
     <header>
         <div class="header-left">
             <!-- Contenedor de la parte izquierda del encabezado -->
-
             <!-- Logo de la empresa con enlace (actualmente vacío) -->
             <a href="#" class="logo-link">
                 <img src="imagenes/logo/Logo RI.png" alt="Logo de Regalos Inolvidables">
                 <!-- Imagen del logo con ruta relativa y texto alternativo -->
             </a>
             <!-- Iconos de búsqueda y menú móvil -->
-            <div class="header-icons-right">
-                <button class="menu-toggle">☰</button>
-            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <div class="user-actions"></div>
         </div>
         <form class="search-container" action="#" method="get">
@@ -70,7 +71,8 @@
         </nav>
     </header>
     <!-- Inicia el slider -->
-    <div class="slider-container">
+
+    <div class="slider-container" id="inicio">
         <div class="slider">
             <div class="slide">
                 <img src="imagenes/imagenes  slider/imagen_slider_001.jpg" alt="Regalo Inolvidable 1">
@@ -115,6 +117,7 @@
         <button class="prev">❮</button>
         <button class="next">❯</button>
     </div>
+
     <!-- Inicia el slider -->
     <main>
         <!-- Contenedor principal del contenido visible de la página -->
@@ -186,11 +189,11 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
+
         <!-- Sección de información sobre la empresa -->
 
         <!-- Sección con el catálogo de productos -->
         <section id="productos">
-            
             <!-- seccion mockup t-shirt -->
             <ul>
                 <main>
@@ -204,7 +207,7 @@
                             <!-- Columna 2: Miniaturas y botones -->
                             <div class="col-controles">
                                 <div class="miniaturas-predefinidas">
-                                    
+
                                     <span class="subtitulo-controles">Elige un diseño:</span><br>
                                     <img src="productos/imagenes_productos/estampados/estampado1.png" alt="Diseño 1"
                                         class="miniatura-diseño">
@@ -221,49 +224,72 @@
                                     Seleccionar archivo
                                 </label>
                                 <button id="eliminar-img" type="button" class="btn-eliminar">
-                                    Selecciona la imagen para eliminarla
+                                    Toca la imagen para eliminarla
                                 </button>
                                 <div class="miniaturas-camisa">
                                     <span>Elige el color de la camisa:</span><br>
                                     <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Blanca"
-                                        class="miniatura-camisa"
-                                        data-camisa="productos/imagenes_productos/camisas/camisa 1.png">
+                                        class="miniatura-camisa selected"
+                                        data-camisa="productos/imagenes_productos/camisas/camisa 1.png"
+                                        data-color="blanca">
                                     <img src="productos/imagenes_productos/camisas/camisa_azul.png" alt="Azul"
                                         class="miniatura-camisa"
-                                        data-camisa="productos/imagenes_productos/camisas/camisa_azul.png">
+                                        data-camisa="productos/imagenes_productos/camisas/camisa_azul.png"
+                                        data-color="azul">
                                     <img src="productos/imagenes_productos/camisas/camisa_roja.png" alt="Roja"
                                         class="miniatura-camisa"
-                                        data-camisa="productos/imagenes_productos/camisas/camisa_roja.png">
+                                        data-camisa="productos/imagenes_productos/camisas/camisa_roja.png"
+                                        data-color="roja">
                                     <img src="productos/imagenes_productos/camisas/camisa-negra.png" alt="Negra"
                                         class="miniatura-camisa"
-                                        data-camisa="productos/imagenes_productos/camisas/camisa-negra.png">
+                                        data-camisa="productos/imagenes_productos/camisas/camisa-negra.png"
+                                        data-color="negra">
                                 </div>
                             </div>
                             <!-- Columna 3: Detalles del producto -->
                             <div class="col-detalles">
                                 <h2>Camisa Personalizada</h2>
-                                <p>
-                                    Camisas de algodón premium con estampados únicos y personalizados.<br>
-                                    Elige tu diseño favorito o solicita uno exclusivo.<br>
-                                    ¡Perfectas para regalar o lucir tu estilo!
-                                </p>
                                 <ul>
                                     <li>Material: 100% algodón suave</li>
                                     <li>Estampado duradero y de alta calidad</li>
                                     <li>Variedad de colores y tallas</li>
                                     <li>Descarga de diseño, dale click en hacer pedido y envia la imagen.</li>
                                 </ul>
-                                <div>
-                                    <label for="talla">Talla:</label>
-                                    <select id="talla" name="talla">
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                    </select>
-                                </div>
-                                <div class="producto-precio">
-                                    <span>Desde <strong>$14.99</strong></span>
+                                <p id="info-impresion Transfer">
+                                    Transfer de alta calidad y resistencia.<br>
+                                    Tamaño maximo A4 = 21 x 29.7 cm.<br>
+                                    ¡Perfectas para regalar o lucir tu estilo!
+                                </p>
+                                <p id="info-impresion DTF">
+                                    DTF de alta calidad y resistencia.<br>
+                                    ¡Perfectas para regalar o lucir tu estilo!
+                                </p>
+                                <div class="detalle-opciones">
+                                    <div>
+                                        <label for="talla">Talla:</label>
+                                        <select id="talla" name="talla">
+                                            <option>S</option>
+                                            <option>M</option>
+                                            <option>L</option>
+                                            <option>XL</option>
+                                            <option>XXL</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="tipo-impresion">Tipo de impresión:</label>
+                                        <select id="tipo-impresion" name="tipo-impresion">
+                                            <option value="transfer">Transfer</option>
+                                            <option value="dtf">DTF</option>
+                                        </select>
+                                    </div>
+                                    <div class="producto-precio precio-transfer" id="precio-camisa-transfer"
+                                        style="display:block;">
+                                        Desde <strong>$6.99</strong>
+                                    </div>
+                                    <div class="producto-precio precio-DTF" id="precio-camisa-dtf"
+                                        style="display:none;">
+                                        Desde <strong>$14.99</strong>
+                                    </div>
                                 </div>
                                 <div class="botones-pedido">
                                     <button id="hacer-pedido" class="btn-principal">Hacer pedido</button>
@@ -280,7 +306,7 @@
             <h2>Nuestros Productos</h2>
             <div class="tienda-grid">
                 <!-- Tarjeta de producto -->
-                <a href="productos/camisas.html" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1 Foto 1"
@@ -302,7 +328,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="productos/imagenes_productos/camisas/camisa 1.png" alt="Producto 1 Foto 1"
@@ -321,7 +347,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="imagenes/carrucel/carrucel005.jpg" alt="Producto 1 Foto 1" class="foto-activa">
@@ -341,7 +367,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="imagenes/carrucel/carrucel007.jpg" alt="Producto 1 Foto 1" class="foto-activa">
@@ -359,7 +385,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="imagenes/carrucel/carrucel009.jpg" alt="Producto 1 Foto 1" class="foto-activa">
@@ -377,7 +403,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="producto-card-link">
+                <a class="producto-card-link">
                     <div class="producto-card">
                         <div class="producto-fotos">
                             <img src="imagenes/carrucel/carrucel001.jpg" alt="Producto 1 Foto 1" class="foto-activa">
@@ -400,17 +426,22 @@
         </section>
 
         <hr>
-        <h2>Sobre Nosotros:</h2>
-        <!-- Título de nivel 2 para esta sección -->
-
-        <p>En Regalos Inolvidables llevamos varios años siendo apasionados por el arte de la personalización
-            llevando tus ideas a la digitalización y a la creación de obsequios a través de productos únicos
-            que transmitirán tus sentimientos, emoción y por supuesto de darán una experiencia única. </p>
-        <!-- Párrafo con texto descriptivo sobre la empresa -->
+        <section class="sobre-nosotros" id="sobre-nosotros">
+            <div class="sobre-nosotros-visual">
+                <img src="imagenes/logo/Logo RI.png" alt="Regalos Inolvidables" />
+            </div>
+            <div class="sobre-nosotros-texto">
+                <h2>Sobre Nosotros:</h2>
+                <p>
+                    En Regalos Inolvidables llevamos varios años siendo apasionados por el arte de la personalización,
+                    llevando tus ideas a la digitalización y a la creación de obsequios a través de productos únicos
+                    que transmitirán tus sentimientos, emoción y por supuesto te darán una experiencia única.
+                </p>
+            </div>
         </section>
         <hr>
         <!-- Sección de servicios (en desarrollo) -->
-        <section class="servicios-destacados">
+        <section class="servicios-destacados" id="servicios">
             <h3 class="servicios-titulo">Nuestros Servicios</h3>
             <div class="servicios-grid">
                 <div class="servicio-card">
@@ -485,136 +516,32 @@
     </main>
     <!-- Pie de página con enlaces adicionales y redes sociales -->
     <footer>
-        <!-- Contenedor principal del footer -->
-
-        <div class="footer-top">
-            <!-- Parte superior del footer que contiene columnas de enlaces -->
-
-            <div class="footer-column">
-                <!-- Primera columna de enlaces -->
-
-                <h4>Para ti</h4>
-                <!-- Título de la columna -->
-
-                <ul>
-                    <!-- Lista con enlaces rápidos para el usuario -->
-                    <li><a href="">Seguimiento de envío</a></li>
-                    <li><a href="">Recibir</a></li>
-                    <li><a href="">Enviar</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <!-- Segunda columna de enlaces -->
-
-                <h4>Para tu empresa</h4>
-                <!-- Título de la columna -->
-
-                <ul>
-                    <!-- Lista con enlaces para empresas -->
-                    <li><a href="">Enviar</a></li>
-                    <li><a href="">Ecommerce</a></li>
-                    <li><a href="">Marketing</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <!-- Tercera columna de enlaces -->
-
-                <h4>Para tu interés</h4>
-                <!-- Título de la columna -->
-
-                <ul>
-                    <!-- Lista con enlaces de interés general -->
-                    <li><a href="">Filatelia</a></li>
-                    <li><a href="">Correos Market</a></li>
-                    <li><a href="">Web institucional</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column contact-column">
-                <!-- Cuarta columna para atención al cliente y redes sociales -->
-
-                <h4>Atención al cliente</h4>
-                <!-- Título de la sección -->
-
-                <div class="social-icons">
-                    <!-- Contenedor de iconos sociales -->
-                    <a href="URL_FACEBOOK" target="_blank">f</a>
-                    <!-- Enlace a Facebook, abre en pestaña nueva -->
-
-                    <a href="URL_INSTAGRAM" target="_blank">o</a>
-                    <!-- Enlace a Instagram -->
-
-                    <a href="URL_TWITTER" target="_blank">X</a>
-                    <!-- Enlace a Twitter -->
-
-                    <a href="URL_LINKEDIN" target="_blank">in</a>
-                    <!-- Enlace a LinkedIn -->
-
-                    <a href="URL_YOUTUBE" target="_blank">►</a>
-                    <!-- Enlace a YouTube -->
-                </div>
+        <!-- Parte media del footer con promoción y pagos -->
+        <div class="footer-payment-methods">
+            <!-- Sección para métodos de pago aceptados -->
+            <h2>Métodos de pago</h2>
+            <!-- Título de la sección -->
+            <div class="payment-icons">
+                <!-- Imágenes con logos de tarjetas y plataformas de pago -->
+                <img src="imagenes/metodos de pago/logo mastercar.png" alt="Mastercard">
+                <img src="imagenes/metodos de pago/logo paypal.png" alt="PayPal">
+                <img src="imagenes/metodos de pago/logo maestro.png" alt="Maestro">
+                <img src="imagenes/metodos de pago/logo visa.png" alt="Visa">
+                <img src="imagenes/metodos de pago/logo americanexpres.png" alt="American Express">
             </div>
         </div>
-
-        <hr class="footer-divider">
-        <!-- Línea horizontal para separar visualmente las partes del footer -->
-
-        <div class="footer-middle">
-            <!-- Parte media del footer con promoción y pagos -->
-
-            <div class="footer-app-downloads">
-                <!-- Sección para descarga de la app -->
-
-                <h4>Descarga la App de Regalos Inolvidables</h4>
-                <!-- Título de la sección -->
-
-                <div class="app-buttons">
-                    <!-- Botones con enlaces a tiendas de apps -->
-
-                    <a href="" target="_blank"><img src="imagenes/appstore/app store apple.png" alt="App Store"></a>
-                    <!-- Imagen y enlace a Apple App Store -->
-
-                    <a href="" target="_blank"><img src="imagenes/appstore/appstore google.png" alt="Google Play"></a>
-                    <!-- Imagen y enlace a Google Play Store -->
-                </div>
-            </div>
-
-            <div class="footer-payment-methods">
-                <!-- Sección para métodos de pago aceptados -->
-
-                <h4>Métodos de pago</h4>
-                <!-- Título de la sección -->
-
-                <div class="payment-icons">
-                    <!-- Imágenes con logos de tarjetas y plataformas de pago -->
-
-                    <img src="imagenes/metodos de pago/logo mastercar.png" alt="Mastercard">
-                    <img src="imagenes/metodos de pago/logo paypal.png" alt="PayPal">
-                    <img src="imagenes/metodos de pago/logo maestro.png" alt="Maestro">
-                    <img src="imagenes/metodos de pago/logo visa.png" alt="Visa">
-                    <img src="imagenes/metodos de pago/logo americanexpres.png" alt="American Express">
-                </div>
-            </div>
         </div>
-
         <hr class="footer-divider">
         <!-- Otra línea para separar visualmente -->
-
         <div class="footer-bottom">
             <!-- Parte inferior del footer con copyright y enlaces legales -->
-
             <div class="footer-logo-copyright">
                 <!-- Contenedor del logo pequeño en el footer -->
-
                 <img src="imagenes/logo/Logo RI.png" alt="Logo" class="footer-small-logo">
                 <!-- Logo de la empresa en tamaño pequeño -->
             </div>
-
             <div class="footer-legal-links">
                 <!-- Lista con enlaces legales -->
-
                 <ul>
                     <li><a href="">Política de cookies</a></li>
                     <li><a href="">Aviso legal</a></li>
@@ -625,10 +552,8 @@
                 </ul>
             </div>
         </div>
-
         <p>&copy; 2025 Tecnova Center España. Todos los derechos reservados.</p>
         <!-- Aviso de derechos reservados -->
-
         <p>Síguenos en nuestras redes sociales:
             <a href="URL_FACEBOOK" target="_blank">Facebook</a> |
             <a href="URL_INSTAGRAM" target="_blank">Instagram</a> |
@@ -641,6 +566,15 @@
     <script src="js/carrucel.js"></script>
     <script src="js/tienda.js"></script>
     <script src="js/canvas t-shirt.js"></script>
+    <script type="text/javascript">
+window.$crisp=[];window.CRISP_WEBSITE_ID="be25f75c-4cdd-4e40-b075-6d458120463e";
+(function(){
+    d=document;
+    s=d.createElement("script");
+    s.src="https://client.crisp.chat/l.js";
+    s.async=1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+})();
+</script>
 </body>
-
 </html>
